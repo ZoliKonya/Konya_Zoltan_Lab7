@@ -1,4 +1,6 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+
 
 namespace Konya_Zoltan_Lab7.Models
 {
@@ -6,8 +8,13 @@ namespace Konya_Zoltan_Lab7.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+
         [MaxLength(250), Unique]
         public string Description { get; set; }
         public DateTime Date { get; set; }
+
+        [ForeignKey(typeof(Shop))]
+        public int ShopID { get; set; }
+
     }
 }
